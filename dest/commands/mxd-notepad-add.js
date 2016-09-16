@@ -14,10 +14,9 @@ module.exports = _ref => {
 
       const session = _ref4.session;
 
-      yield heimdall.request(`mxd/notepad/${ session.customer.customerId }`, {
+      yield heimdall.post(`mxd/notepad/${ session.customer.customerId }`, {
         body: { contentId: args },
-        headers: { 'mxd-session': session.sessionId },
-        method: 'post'
+        headers: { 'mxd-session': session.sessionId }
       });
       reply.send(`added asset with id "${ args }" to the notepad`);
     });
